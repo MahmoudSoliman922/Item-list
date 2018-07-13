@@ -1,0 +1,73 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "Logedinheader.html" %}
+	<div class="row top-menu">
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right">
+					</div>
+	</div>
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<h1>{{competetion_name}}</h1>
+		</div>
+	</div>
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+</div>
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<a href="{{url_for('editCompetetion', competetion_id = competetion_id )}}"> <!-- url for edit team -->
+				<button class="btn btn-default" id="new-menu-item">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit Competetion
+				</button>
+			</a>
+			<a href="{{url_for('deleteCompetetion', competetion_id = competetion_id )}}"> <!-- url for delete Team -->
+				<button class="btn btn-default delete" id="delete-restaurant">
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete Competetion
+				</button>
+			</a>
+		</div>
+		<div class="col-md-7"></div>
+	</div>
+	
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 padding-none">
+			<a href="{{url_for('newTeam' , competetion_id = competetion_id)}}"> <!-- Change this with the New Teams URL --> 
+				<button class="btn btn-default" id="new-restaurant"> <!-- Change this with the new CSS NAme --> 
+					<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Add Team
+				</button>
+			</a>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+	{% for team in teams %}
+		<a href = "{{url_for('showPlayer', team_id = team.id)}}"> <!-- Change this with All Team URL and Team ID // Competetion ID ?-->
+			<div class="row">
+				<div class="col-md-1"></div>
+					<div class="col-md-10 comp-team-list"> <!-- Change it to the new CSS name "comp-team-list" -->
+						<h3>{{team.name}}</h3>
+					</div>
+				<div class="col-md-1"></div>
+			</div>
+		</a>
+
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "Logedinheader.html" %}
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit Player</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{player.name }}">
+
+					<label for="pos">Position:</label>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos1" value="CF" {% if player.position == 'CF'%}checked{%endif%}>CF
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos2" value="LW" {% if player.position == 'LW'%}checked{%endif%}>LW
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos3" value="SS" {% if player.position == 'SS'%}checked{%endif%}>SS
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos4" value="RW" {% if player.position == 'RW'%}checked{%endif%}>RW
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos5" value="AM" {% if player.position == 'AM'%}checked{%endif%}>AM
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos6" value="LM" {% if player.position == 'LM'%}checked{%endif%}>LM
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos7" value="CM" {% if player.position == 'CM'%}checked{%endif%}>CM
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos8" value="RM" {% if player.position == 'RM'%}checked{%endif%}>RM
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos9" value="DM" {% if player.position == 'DM'%}checked{%endif%}>DM
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos10" value="LWB" {% if player.position == 'LWB'%}checked{%endif%}>LWB
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos11" value="RWB" {% if player.position == 'RWB'%}checked{%endif%}>RWB
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos12" value="LB" {% if player.position == 'CB'%}checked{%endif%}>CB
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos13" value="RB" {% if player.position == 'RB'%}checked{%endif%}>RB
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos14" value="CB" {% if player.position == 'CB'%}checked{%endif%}>CB
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos15" value="SW" {% if player.position == 'SW'%}checked{%endif%}>SW
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pos" id="pos16" value="GK" {% if player.position == 'GK'%}checked{%endif%}>GK
+					  </label>
+					</div>
+
+					<label for="number">Jersey Number :</label>
+						<input type ="text" maxlength="10" class="form-control" name="number" value="{{player.number}}">
+					<label for="dob">Date of birth :</label>
+						<input type ="text" maxlength="10" class="form-control" name="dob" value="{{player.dob}}">
+					<label for="nationality">Nationality :</label>
+						<input type ="text" maxlength="10" class="form-control" name="nationality" value="{{player.nationality}}">
+					<label for="contract">Contract until :</label>
+						<input type ="text" maxlength="10" class="form-control" name="contract" value="{{player.contract}}">
+					<label for="value">Market value :</label>
+						<input type ="text" maxlength="10" class="form-control" name="value" value="{{player.marketvalue}}">					
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+				
+
+
+				</div>
+			</form>
+					<a href = '{{url_for('showCompetetion')}}'> <!-- url for show teams -->
+						<button class="btn btn-default delete">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+		</div>
+	</div>
+{% endblock %}

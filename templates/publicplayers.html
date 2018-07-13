@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "Logedoutheader.html" %}
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>{{ team.name }}
+			<figure class="creator">
+				<img src="{{ url_for('static', filename='blank_user.gif') }}">
+				<figcaption>Team creator's name goes here</figcaption>
+			</figure>
+			</h1>
+
+		</div>
+	</div>
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+	
+	{% if players !=[] %}	
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-3">
+					{% for player in players %}
+							<div class="player-item">
+								<h2>{{player.name}}</h2>
+								<p>Position : {{player.position}}</p>
+								<p>Jersey Number : {{player.number}}</p>
+								<p>Date of birth : {{player.dob}}</p>
+								<p>Nationality : {{player.nationality}}</p>
+								<p>Contract until : {{player.contract}}</p>
+								<p>Market value : {{player.marketvalue}}$</p>
+							</div>
+					{% endfor %}
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	{% endif %}
+{% endblock %}
